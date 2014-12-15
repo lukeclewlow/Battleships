@@ -16,4 +16,8 @@ class Board
 		@grid[x][y]
 	end
 
+	def place_ship(x,y)
+		@grid[x][y] << ship
+	end
+
 end	
