@@ -9,7 +9,13 @@ class Cell
 		@occupied
 	end
 
+	def shot_at?
+		@shot_at
+	end
 	
+	def shot
+		@shot_at = true
+	end
 
 
 end

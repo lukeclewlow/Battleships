@@ -10,12 +10,8 @@ class Board
 
 	end
 
-	def column_length
+	def hash_length
 		@grid.count
-	end
-
-	def row_length
-		@grid.length
 	end
 
 	def array(x,y)
@@ -24,6 +20,10 @@ class Board
 
 	def find(x)
 		@grid.fetch(x)
+	end
+
+	def shoot(coord)
+		find(coord).shot
 	end
 
 end	
