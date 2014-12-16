@@ -1,8 +1,12 @@
 class Ships
 
-	# def initialize 
+	def initialize	 
+		@afloat
+	end
 
-	# end
+	def afloat?
+		@afloat = true
+	end
 
 	def place_ship(x,y)
 		@grid[x][y] << ship
@@ -12,44 +16,66 @@ class Ships
 		size 
 	end
 
+	def size
+		@size
+	end
+
+	def hit!
+		@count -= 1
+	end
+
+	def hit_count
+		@count
+	end
+
 end
 
 class AircraftCarrier < Ships
 
-	def size
+	def initialize
+		super
 		@size = 5
+		@count = 5
 	end
 
 end
 
 class Battleship < Ships
 
-	def size
+	def initialize
+		super
 		@size = 4
+		@count = 4
 	end
 
 end
 
 class Submarine < Ships
 
-	def size
+	def initialize
+		super
 		@size = 3
+		@count = 3
 	end
 
 end
 
 class Destroyer < Ships
 
-	def size
+	def initialize
+		super
 		@size = 3
+		@count = 3
 	end
 
 end
 
 class PatrolBoat < Ships
 
-	def size
+	def initialize
+		super
 		@size = 2
+		@count = 2
 	end
 
 end
