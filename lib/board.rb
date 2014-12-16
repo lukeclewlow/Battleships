@@ -26,4 +26,8 @@ class Board
 		find(coord).shot
 	end
 
+	def place_ship(coord)
+		find(coord).place
+	end
+
 end	

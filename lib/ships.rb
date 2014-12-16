@@ -8,10 +8,6 @@ class Ships
 		sunk ? @afloat = false : @afloat = true
 	end
 
-	def place_ship(x,y)
-		@grid[x][y] << ship
-	end
-
 	def length
 		size 
 	end

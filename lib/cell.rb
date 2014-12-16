@@ -1,7 +1,7 @@
 class Cell
 
 	def initialize
-		@occupied = Water.new
+		@occupied = false 			# Water.new (other way)
 		@shot_at = false
 	end
 
@@ -17,5 +17,8 @@ class Cell
 		@shot_at = true
 	end
 
+	def place
+		@occupied = true
+	end
 
 end
