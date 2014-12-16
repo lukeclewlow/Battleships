@@ -12,7 +12,7 @@ describe Board do
 
 	it 'can shoot at a cell' do
 		board.shoot("A1")
-		expect(cell.shot_at?).to eq(true)
+		expect(board.find("A1")).to be_shot_at
 	end
 
 end
