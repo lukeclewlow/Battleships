@@ -1,7 +1,7 @@
 class Board
 
 	def initialize
-		@grid = Array.new(10) {Array.new(10,'~')}
+		@grid = ("A".."J").map{|x| (1..10).map{ |y| x + y.to_s }}
 	end
 
 	def column_length
@@ -14,10 +14,6 @@ class Board
 
 	def array(x,y)
 		@grid[x][y]
-	end
-
-	def place_ship(x,y)
-		@grid[x][y] << ship
 	end
 
 end	
