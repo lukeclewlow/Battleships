@@ -1,7 +1,13 @@
 class Board
 
 	def initialize
-		@grid = ("A".."J").map{|x| (1..10).map{ |y| x + y.to_s }}
+		@grid = {}
+			("A".."J").to_a.each do |letter|
+				(1..10).to_a.each do |number|
+					@grid["#{letter}#{number}"] = Cell.new
+				end
+			end
+
 	end
 
 	def column_length
@@ -9,11 +15,15 @@ class Board
 	end
 
 	def row_length
-		@grid[0].length
+		@grid.length
 	end
 
 	def array(x,y)
 		@grid[x][y]
+	end
+
+	def find(x)
+		@grid.fetch(x)
 	end
 
 end	

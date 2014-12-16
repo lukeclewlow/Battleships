@@ -5,7 +5,7 @@ class Ships
 	end
 
 	def afloat?
-		@afloat = true
+		sunk ? @afloat = false : @afloat = true
 	end
 
 	def place_ship(x,y)
@@ -26,6 +26,10 @@ class Ships
 
 	def hit_count
 		@count
+	end
+
+	def sunk
+		@count == 0
 	end
 
 end
