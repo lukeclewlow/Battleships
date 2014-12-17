@@ -105,7 +105,6 @@ describe Ships do
 
 		end
 
-
 	end
 	
 
@@ -152,6 +151,5 @@ describe Ships do
 		end 
 
 	end
-
 
 end

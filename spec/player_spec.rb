@@ -9,8 +9,6 @@ describe Player do
 	let(:player) {Player.new}	
 	let(:ship) {Submarine.new}
 
-
-
 	context 'placing ships' do
 
 		it 'can tell the board to place a ship horizontally' do
@@ -23,9 +21,7 @@ describe Player do
 			expect(board.find("C1")).to be_occupied
 		end
 
-
 	end
-
 
 	context 'shooting' do
 
@@ -33,6 +29,12 @@ describe Player do
 			player.place_ship_horizontal("A1", board, ship)
 			player.shoot("A1", board)
 			expect(board.find("A1")).to be_shot_at
+		end
+
+		it 'can\'t shoot a cell it has already shot' do
+			player.place_ship_horizontal("A1", board, ship)
+			player.shoot("A1", board)
+			expect{player.shoot("A1", board)}.to raise_error(RuntimeError, "A1 has already been shot at, please choose another Co-ordinate!")
 		end
 
 	end

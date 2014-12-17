@@ -4,9 +4,7 @@ require './lib/ships'
 describe Cell do 
 
 	let(:cell) {Cell.new}
-	let(:ship) {Battleship.new}	# it 'should create water when initialized' do
-	# 	expect(Cell.new).to be_occupied
-	# end
+	let(:ship) {Battleship.new}	
 
 	it 'should initialize unoccupied and not shot at' do
 		expect(Cell.new).to_not be_occupied
@@ -28,6 +26,5 @@ describe Cell do
 		cell.shot_if_unoccupied
 		expect(cell).to be_shot_at
 	end
-
 
 end

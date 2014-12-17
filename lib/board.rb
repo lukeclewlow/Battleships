@@ -26,14 +26,18 @@ class Board
 		if find(coord).shot_at? == true
 			raise "#{coord} has already been shot at, please choose another Co-ordinate!"
 		else
-			if find(coord).occupied? == true
-				find(coord).shot_if_occupied
-				"Hit"
-			else
-				find(coord).shot_if_unoccupied
-				"Miss"
-			end
+			find(coord).occupied? == true ? occupied(coord) : unoccupied(coord)
 		end
+	end
+
+	def occupied(coord)
+		find(coord).shot_if_occupied
+		"Hit"
+	end
+
+	def unoccupied(coord)
+		find(coord).shot_if_unoccupied
+		"Miss"
 	end
 
 	def placement(coord, ship)
