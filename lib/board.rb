@@ -30,4 +30,15 @@ class Board
 		find(coord).place
 	end
 
+	def place_ship_horizontal(array)
+		array.each { |x| place_ship(x) }
+	end
+
+	
+
 end	
+
+
+
+
+

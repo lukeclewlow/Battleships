@@ -19,5 +19,9 @@ describe Board do
 		expect(board.find("A1")).to be_occupied
 	end
 
+	it 'can place a ship horizontally over 3 cells' do
+		board.place_ship_horizontal(["A1", "A2", "A3"])
+		expect(board.find("A3")).to be_occupied
+	end
 end
 
