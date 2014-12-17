@@ -27,9 +27,10 @@ class Board
 			raise "#{coord} has already been shot at, please choose another Co-ordinate!"
 		else
 			if find(coord).occupied? == true
-				find(coord).shot
+				find(coord).shot_if_occupied
 				"Hit"
 			else
+				find(coord).shot_if_unoccupied
 				"Miss"
 			end
 		end

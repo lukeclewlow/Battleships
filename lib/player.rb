@@ -14,6 +14,10 @@ class Player
 		board.place_ship(array2, ship)
 	end
 
+	def shoot(coord, board)
+		board.shoot(coord)
+	end
+
 end
 
 

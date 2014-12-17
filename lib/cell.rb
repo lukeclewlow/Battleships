@@ -21,9 +21,13 @@ class Cell
 		@shot_at
 	end
 	
-	def shot
+	def shot_if_occupied
 		@shot_at = true
 		shoot
+	end
+
+	def shot_if_unoccupied
+		@shot_at = true
 	end
 
 	def place(ship)
