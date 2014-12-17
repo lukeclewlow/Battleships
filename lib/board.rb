@@ -44,8 +44,29 @@ class Board
 		find(coord).place(ship)
 	end
 
-	def place_ship(array, ship)
-		array.each { |x| placement(x, ship) }
+	def ship_size(ship)
+		ship.size
 	end
+
+	def place_ship(coord, ship)
+		s_size = ship_size(ship)
+		split_coord = coord.split(//)
+		number = split_coord[1]
+		total = (number.to_i + s_size)-1
+		@array = (number.to_s..total.to_s).to_a # think needs to go to string
+		@array2 = create_coordinates(@array, split_coord[0])
+		placement_of_ship(coord, ship)
+	end
+
+	def create_coordinates(array, row)
+		array.collect { |x| row + x }
+	end
+
+	def placement_of_ship(coord, ship)
+		# calc_column(coord, ship)
+		@array2.each { |x| placement(x, ship) }
+		# create_coordinates(array, row)
+	end
+
 
 end	
