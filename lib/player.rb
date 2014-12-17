@@ -15,3 +15,12 @@ class Player
 	end
 
 end
+
+
+
+
+
+
+
+# array.map do |i|
+# i.split(//).to_i; 

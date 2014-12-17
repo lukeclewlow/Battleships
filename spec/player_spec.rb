@@ -18,7 +18,7 @@ describe Player do
 
 		it 'can place a ship vertically' do
 			player.place_ship_vertical("A1", board)
-			expect(board.find("C3")).to be_occupied
+			expect(board.find("C1")).to be_occupied
 		end
 
 
