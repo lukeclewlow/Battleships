@@ -5,6 +5,14 @@ class Cell
 		@shot_at = false
 	end
 
+	def ships
+		@ships = []
+	end
+
+	def shoot
+		@ships[0].hit!
+	end
+
 	def occupied?
 		@occupied
 	end
@@ -15,10 +23,12 @@ class Cell
 	
 	def shot
 		@shot_at = true
+		shoot
 	end
 
-	def place
+	def place(ship)
 		@occupied = true
+		ships << ship
 	end
 
 end

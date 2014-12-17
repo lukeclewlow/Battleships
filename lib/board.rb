@@ -23,17 +23,24 @@ class Board
 	end
 
 	def shoot(coord)
-		find(coord).shot
+		if find(coord).shot_at? == true
+			raise "#{coord} has already been shot at, please choose another Co-ordinate!"
+		else
+			if find(coord).occupied? == true
+				find(coord).shot
+				"Hit"
+			else
+				"Miss"
+			end
+		end
 	end
 
-	def placement(coord)
-		find(coord).place
+	def placement(coord, ship)
+		find(coord).place(ship)
 	end
 
-	def place_ship(array)
-		array.each { |x| placement(x) }
+	def place_ship(array, ship)
+		array.each { |x| placement(x, ship) }
 	end
-
-	
 
 end	
