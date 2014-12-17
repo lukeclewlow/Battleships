@@ -26,19 +26,14 @@ class Board
 		find(coord).shot
 	end
 
-	def place_ship(coord)
+	def placement(coord)
 		find(coord).place
 	end
 
-	def place_ship_horizontal(array)
-		array.each { |x| place_ship(x) }
+	def place_ship(array)
+		array.each { |x| placement(x) }
 	end
 
 	
 
 end	
-
-
-
-
-

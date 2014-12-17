@@ -15,12 +15,12 @@ describe Board do
 	end
 
 	it 'can place a ship' do
-		board.place_ship("A1")
+		board.placement("A1")
 		expect(board.find("A1")).to be_occupied
 	end
 
 	it 'can place a ship horizontally over 3 cells' do
-		board.place_ship_horizontal(["A1", "A2", "A3"])
+		board.place_ship(["A1", "A2", "A3"])
 		expect(board.find("A3")).to be_occupied
 	end
 end
