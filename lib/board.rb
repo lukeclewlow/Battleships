@@ -26,26 +26,35 @@ class Board
 		if find(coord).shot_at? == true
 			raise "#{coord} has already been shot at, please choose another Co-ordinate!"
 		else
-			find(coord).occupied? == true ? occupied(coord) : unoccupied(coord)
+			find(coord).occupied? == true ? shoot_occupied(coord) : shoot_unoccupied(coord)
 		end
 	end
 
-	def occupied(coord)
+	def shoot_occupied(coord)
 		find(coord).shot_if_occupied
 		"Hit"
 	end
 
-	def unoccupied(coord)
+	def shoot_unoccupied(coord)
 		find(coord).shot_if_unoccupied
 		"Miss"
 	end
 
-	def placement(coord, ship)
-		find(coord).place(ship)
+	def check_if_occupied(coord)
+		find(coord).occupied?
+	end
+
+	def check_array_occupation
+		@array3 = []
+		@array2.each { |x| @array3 << check_if_occupied(x) }
 	end
 
 	def ship_size(ship)
 		ship.size
+	end
+
+	def create_coordinates(array, row)
+		array.collect { |x| row + x }
 	end
 
 	def place_ship(coord, ship)
@@ -53,20 +62,24 @@ class Board
 		split_coord = coord.split(//)
 		number = split_coord[1]
 		total = (number.to_i + s_size)-1
-		@array = (number.to_s..total.to_s).to_a # think needs to go to string
+		@array = (number.to_s..total.to_s).to_a 
 		@array2 = create_coordinates(@array, split_coord[0])
 		placement_of_ship(coord, ship)
 	end
 
-	def create_coordinates(array, row)
-		array.collect { |x| row + x }
+	def placement(coord, ship)
+		find(coord).place(ship)
 	end
 
 	def placement_of_ship(coord, ship)
-		# calc_column(coord, ship)
-		@array2.each { |x| placement(x, ship) }
-		# create_coordinates(array, row)
+		check_array_occupation
+			if @array3.include? true
+				"One of the cells has already been used, please choose another area."
+			else
+				@array2.each { |x|  placement(x, ship) }
+			end
+		
 	end
 
-
 end	
+
